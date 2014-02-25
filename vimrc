@@ -18,7 +18,15 @@ filetype plugin indent on
 "" IMPORT FB SPECIFIC CONFIGS (could also use try/catch)
 let fb_vimrc = $ADMIN_SCRIPTS . "/master.vimrc"
 if filereadable(g:fb_vimrc)
-  silent! execute 'source ' . fb_vimrc
+    silent! execute 'source ' . fb_vimrc
+else
+    " Default configuration for intentation and tab size
+    set tabstop=4
+    set softtabstop=4
+    set expandtab
+    set smarttab
+    set shiftwidth=4
+    set autoindent
 endif
 
 "" PLUGINS SETTINGS
