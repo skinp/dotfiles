@@ -13,6 +13,7 @@ Bundle 'techlivezheng/vim-plugin-minibufexpl'
 Bundle 'scrooloose/nerdtree'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'scrooloose/syntastic'
+Bundle 'jnwhiteh/vim-golang'
 filetype plugin indent on
 
 "" IMPORT FB SPECIFIC CONFIGS (could also use try/catch)
