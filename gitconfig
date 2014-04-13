@@ -2,3 +2,17 @@
 	name = Patrick Pelletier
 	email = pp.pelletier@gmail.com
 
+[push]
+    default = current
+
+[pull]
+    default = current
+
+[color]
+    ui = 1
+
+[alias]
+    glog = log --graph --decorate
+    ff = -c merge.defaultToUpstream=true merge --ff-only
+    lias = config --get-regexp alias
+    co = checkout
