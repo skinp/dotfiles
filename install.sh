@@ -1,7 +1,7 @@
 #!/bin/bash
 
 mkdir -p ~/.vim/bundle
-git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+test -d ~/.vim/bundle/vundle || git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 cp vimrc ~/.vimrc
 vim +BundleInstall +qall
 
