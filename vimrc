@@ -9,7 +9,7 @@ filetype off " Required for Vundle
 set rtp +=~/.vim/bundle/vundle/
 call vundle#rc()
 Bundle 'vundle'
-Bundle 'techlivezheng/vim-plugin-minibufexpl'
+Bundle 'bling/vim-bufferline'
 Bundle 'scrooloose/nerdtree'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'scrooloose/syntastic'
