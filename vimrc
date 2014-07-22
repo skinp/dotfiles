@@ -6,14 +6,18 @@ set fo=tcq " Turn off auto adding comments on next line
 
 "" VUNDLE SETUP
 filetype off " Required for Vundle
-set rtp +=~/.vim/bundle/vundle/
-call vundle#rc()
-Bundle 'vundle'
-Bundle 'bling/vim-bufferline'
-Bundle 'scrooloose/nerdtree'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'scrooloose/syntastic'
-Bundle 'jnwhiteh/vim-golang'
+set rtp +=~/.vim/bundle/Vundle.vim/
+call vundle#begin()
+Plugin 'gmarik/Vundle.vim'
+Plugin 'bling/vim-bufferline'
+Plugin 'scrooloose/nerdtree'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'scrooloose/syntastic'
+Plugin 'jnwhiteh/vim-golang'
+Plugin 'kien/ctrlp.vim'
+Plugin 'mileszs/ack.vim'
+Plugin 'Raimondi/delimitMate'
+call vundle#end()
 filetype plugin indent on
 
 "" IMPORT FB SPECIFIC CONFIGS (could also use try/catch)
