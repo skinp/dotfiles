@@ -16,3 +16,6 @@
     ff = -c merge.defaultToUpstream=true merge --ff-only
     lias = config --get-regexp alias
     co = checkout
+    vanquish = submodule update --init --recursive
+[branch]
+	autosetuprebase = always
