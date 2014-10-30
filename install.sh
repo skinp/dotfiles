@@ -8,3 +8,4 @@ vim +PluginInstall +qall
 cp tmux.conf ~/.tmux.conf
 cp gitconfig ~/.gitconfig
 cp pythonrc.py ~/.pythonrc.py
+cp editorconfig ~/.editorconfig

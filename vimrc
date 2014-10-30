@@ -17,6 +17,7 @@ Plugin 'jnwhiteh/vim-golang'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'Raimondi/delimitMate'
+Plugin 'editorconfig/editorconfig-vim'
 call vundle#end()
 filetype plugin indent on
 

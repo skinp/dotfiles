@@ -17,5 +17,7 @@
     lias = config --get-regexp alias
     co = checkout
     vanquish = submodule update --init --recursive
+    ls = log --oneline
+    caa = commit -a --amend -C HEAD
 [branch]
 	autosetuprebase = always
