@@ -1,6 +1,6 @@
 [user]
-	name = Patrick Pelletier
-	email = pp.pelletier@gmail.com
+    name = Patrick Pelletier
+    email = pp.pelletier@gmail.com
 
 [push]
     default = current
@@ -20,4 +20,4 @@
     ls = log --oneline
     caa = commit -a --amend -C HEAD
 [branch]
-	autosetuprebase = always
+    autosetuprebase = always
