@@ -21,3 +21,13 @@ trim_trailing_whitespace = false
 [*.json]
 indent_style = space
 indent_size = 2
+
+[*.go]
+indent_style = tab
+
+[*.{yaml,yml}]
+indent_style = space
+indent_size = 2
+
+[[Mm]akefile]
+indent_style = tab
