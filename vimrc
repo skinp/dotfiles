@@ -9,7 +9,8 @@ filetype off " Required for Vundle
 set rtp +=~/.vim/bundle/Vundle.vim/
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
-Plugin 'bling/vim-bufferline'
+"Plugin 'bling/vim-bufferline'
+Plugin 'ap/vim-buftabline'
 Plugin 'scrooloose/nerdtree'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'scrooloose/syntastic'
