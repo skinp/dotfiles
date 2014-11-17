@@ -44,10 +44,6 @@ let g:NERDTreeHighlightCursorline = 0
 map <C-n> :NERDTreeToggle<CR>
 " if the last window is NERDTree, then close Vim
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-" Mini Buf Explorer stuff
-let g:miniBufExplBRSplit = 0
-let g:miniBufExplHideWhenDiff = 0
-let g:miniBufExplShowBufNumbers = 0
 " Manual syntastic checks
 let g:syntastic_mode_map = { 'mode': 'passive' }
 
