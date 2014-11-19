@@ -85,10 +85,11 @@ set backspace=eol,start,indent " Backspace deletes all
 " Make searches case-insensitive, unless they contain upper-case letters:
 set ignorecase
 set smartcase
+set incsearch
 " Settings for files tab completion
 set wildmenu
 set wildmode=list:longest,full
-set wildignore=*.swp,*.pyc,*.tgz,*.tar.gz,*.bz2,*.o
+set wildignore=*.swp,*.pyc,*.tgz,*.gz,*.bz2,*.o
 
 "" KEYBOARD MAPPINGS
 " ; works like : for commands
