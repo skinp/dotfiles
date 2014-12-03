@@ -21,3 +21,6 @@
     caa = commit -a --amend -C HEAD
 [branch]
     autosetuprebase = always
+
+[core]
+	excludesfile = ~/.gitignore_global
