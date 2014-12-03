@@ -46,6 +46,8 @@ map <C-n> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 " Manual syntastic checks
 let g:syntastic_mode_map = { 'mode': 'passive' }
+" format with goimports instead of gofmt
+let g:go_fmt_command = "goimports"
 
 "" BUFFERS/VIM INTERNALS SETTINGS
 set hi=500 " Remember last 500 typed commands
