@@ -9,3 +9,6 @@ cp tmux.conf ~/.tmux.conf
 cp gitconfig ~/.gitconfig
 cp pythonrc.py ~/.pythonrc.py
 cp editorconfig ~/.editorconfig
+
+# Disable login message from SSH
+touch ~/.hushlogin
