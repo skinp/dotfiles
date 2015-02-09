@@ -38,7 +38,7 @@ endif
 let g:NERDTreeMinimalUI = 1
 let g:NERDTreeDirArrows = 0
 let g:NERDTreeHighlightCursorline = 0
-map <C-n> :NERDTreeToggle<CR>
+nnoremap <C-n> :NERDTreeToggle<CR>
 " if the last window is NERDTree, then close Vim
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 " Manual syntastic checks
@@ -97,20 +97,22 @@ set wildignore=*.swp,*.pyc,*.tgz,*.gz,*.bz2,*.o
 " ; works like : for commands
 nnoremap ; :
 " Use the arrows to something usefull (switch buffer)
-map <right> :bn<CR>
-map <left> :bp<CR>
+nnoremap <right> :bn<CR>
+nnoremap <left> :bp<CR>
 " Toggle paste on/off
-map <leader>pp :setlocal paste!<CR>
+nnoremap <leader>pp :setlocal paste!<CR>
 " Hide left line numbers
-map <leader>n :set number!<CR>
+nnoremap <leader>n :set number!<CR>
+" Close current buffer
+nnoremap <leader>d :call BufferDelete()<CR>
 " Close all the buffers
-map <leader>ba :1,300 bd!<CR>
+nnoremap <leader>ba :1,300 bd!<CR>
 " When pressing <leader>cd switch to the directory of the open buffer
-map <leader>cd :cd %:p:h<CR>
+nnoremap <leader>cd :cd %:p:h<CR>
 " Clearing highlighted search
-nmap <silent> <leader>/ :nohlsearch<CR>
+nnoremap <silent> <leader>/ :nohlsearch<CR>
 " save as root
-ca w!! w !sudo tee > /dev/null "%"
+cnoremap w!! w !sudo tee > /dev/null "%"
 " Yank from the cursor to the end of the line, to be consistent with C and D.
 nnoremap Y y$
 " Wrapped lines goes down/up to next row, rather than next line in file.
@@ -139,4 +141,23 @@ au BufRead,BufNewFile *.py match BadWhitespace /^\t\+/
 "" FUNCTIONS
 function! Fix_Trailing_Whitespace()
     %s/\s\+$//e
+endfunction
+
+function! BufferDelete()
+    if &modified
+        echohl ErrorMsg
+        echomsg "No write since last change. Not closing buffer."
+        echohl NONE
+    else
+        let s:total_nr_buffers = len(filter(range(1, bufnr('$')), 'buflisted(v:val)'))
+
+        if s:total_nr_buffers == 1
+            bdelete
+            echo "Buffer deleted. Created new buffer."
+        else
+            bprevious
+            bdelete #
+            echo "Buffer deleted."
+        endif
+    endif
 endfunction
