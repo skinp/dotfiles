@@ -3,24 +3,21 @@ let mapleader = ',' " Remap leader
 set shortmess=filnxtToOI " Do not show welcome message
 set nobackup " Vim is not made for backups
 set fo=tcq " Turn off auto adding comments on next line
-
-"" VUNDLE SETUP
-filetype off " Required for Vundle
-set rtp +=~/.vim/bundle/Vundle.vim/
-call vundle#begin()
-Plugin 'gmarik/Vundle.vim'
-"Plugin 'bling/vim-bufferline'
-Plugin 'ap/vim-buftabline'
-Plugin 'scrooloose/nerdtree'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'scrooloose/syntastic'
-Plugin 'fatih/vim-go'
-Plugin 'kien/ctrlp.vim'
-Plugin 'mileszs/ack.vim'
-Plugin 'Raimondi/delimitMate'
-Plugin 'editorconfig/editorconfig-vim'
-call vundle#end()
 filetype plugin indent on
+
+"" PLUGINS SETUP
+call plug#begin("~/.vim/plugged")
+Plug 'junegunn/vim-plug'
+Plug 'ap/vim-buftabline'
+Plug 'scrooloose/nerdtree'
+Plug 'altercation/vim-colors-solarized'
+Plug 'scrooloose/syntastic'
+Plug 'fatih/vim-go'
+Plug 'kien/ctrlp.vim'
+Plug 'mileszs/ack.vim'
+Plug 'Raimondi/delimitMate'
+Plug 'editorconfig/editorconfig-vim'
+call plug#end()
 
 "" IMPORT FB SPECIFIC CONFIGS (could also use try/catch)
 let fb_vimrc = $ADMIN_SCRIPTS . "/master.vimrc"

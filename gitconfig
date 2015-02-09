@@ -12,13 +12,15 @@
     ui = 1
 
 [alias]
-    glog = log --graph --decorate
-    ff = -c merge.defaultToUpstream=true merge --ff-only
-    lias = config --get-regexp alias
-    co = checkout
-    vanquish = submodule update --init --recursive
-    ls = log --oneline
     caa = commit -a --amend -C HEAD
+    co = checkout
+    ff = -c merge.defaultToUpstream=true merge --ff-only
+    glog = log --graph --decorate
+    lias = config --get-regexp alias
+    ls = log --oneline
+    unstage = reset HEAD
+    vanquish = submodule update --init --recursive
+
 [branch]
     autosetuprebase = always
 
