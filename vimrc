@@ -19,10 +19,10 @@ Plug 'Raimondi/delimitMate'
 Plug 'editorconfig/editorconfig-vim'
 call plug#end()
 
-"" IMPORT FB SPECIFIC CONFIGS (could also use try/catch)
-let fb_vimrc = $ADMIN_SCRIPTS . "/master.vimrc"
-if filereadable(g:fb_vimrc)
-    silent! execute 'source ' . fb_vimrc
+"" IMPORT WORK SPECIFIC CONFIGS (could also use try/catch)
+let g:work_vimrc = $ADMIN_SCRIPTS . "/master.vimrc"
+if filereadable(g:work_vimrc)
+    silent! execute 'source ' . work_vimrc
 else
     " Default configuration for intentation and tab size
     set tabstop=4
@@ -45,6 +45,9 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 let g:syntastic_mode_map = { 'mode': 'passive' }
 " format with goimports instead of gofmt
 let g:go_fmt_command = "goimports"
+"buftabline
+let g:buftabline_numbers = 1
+let g:buftabline_indicators = 1
 
 "" BUFFERS/VIM INTERNALS SETTINGS
 set hi=500 " Remember last 500 typed commands
