@@ -16,7 +16,9 @@ Plug 'fatih/vim-go'
 Plug 'kien/ctrlp.vim'
 Plug 'mileszs/ack.vim'
 Plug 'Raimondi/delimitMate'
+Plug 'chase/vim-ansible-yaml'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
 call plug#end()
 
 "" IMPORT WORK SPECIFIC CONFIGS (could also use try/catch)
