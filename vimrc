@@ -19,6 +19,8 @@ Plug 'Raimondi/delimitMate'
 Plug 'chase/vim-ansible-yaml'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
+"Plug 'SirVer/ultisnips'
+"Plug 'honza/vim-snippets'
 call plug#end()
 
 "" IMPORT WORK SPECIFIC CONFIGS (could also use try/catch)
@@ -47,9 +49,15 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 let g:syntastic_mode_map = { 'mode': 'passive' }
 " format with goimports instead of gofmt
 let g:go_fmt_command = "goimports"
-"buftabline
+" buftabline
 let g:buftabline_numbers = 1
 let g:buftabline_indicators = 1
+" YouCompleteMe
+let g:ycm_filepath_completion_use_working_dir = 0 " Maybe change to 1 here
+set completeopt-=preview " For now don't show preview window
+"let g:ycm_autoclose_preview_window_after_completion = 1 " Don't need this because of ^^
+"let g:ycm_key_list_select_completion=[]
+"let g:ycm_key_list_previous_completion=[]
 
 "" BUFFERS/VIM INTERNALS SETTINGS
 set hi=500 " Remember last 500 typed commands
@@ -70,6 +78,8 @@ set background=dark
 silent! colorscheme solarized
 set visualbell " Visual bell on errors
 set number " Show line numbers
+set showmatch " Show matching [{()}]...
+set hlsearch " Hightlight searches
 " Use the below highlight group when displaying bad whitespace is desired.
 highlight BadWhitespace ctermbg=darkgreen guibg=darkgreen
 match BadWhitespace /\s\+$/ " Trailing spaces are BAD
