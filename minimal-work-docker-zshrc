@@ -1,0 +1,20 @@
+# Env vars
+export GOPATH="~/src/go"
+export PATH="$PATH:$GOPATH/bin"
+export PS1="%n@%m:%~\$ "
+
+export EDITOR="vim"
+
+export CLICOLOR=1
+export LSCOLORS="gxBxhxDxfxhxhxhxhxcxcx"
+
+export LESS="-F -X -R"
+
+export PYTHONSTARTUP="~/.pythonrc.py"
+
+export HISTSIZE=100000
+export HISTFILESIZE=200000
+
+# Aliases
+alias ll='ls -l'
+alias g='git'
