@@ -1,5 +1,5 @@
 # Env vars
-export GOPATH="~/src/go"
+export GOPATH="/home/me/src/go"
 export PATH="$PATH:$GOPATH/bin"
 export PS1="%n@%m:%~\$ "
 
