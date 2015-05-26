@@ -20,4 +20,5 @@ alias ll='ls -l'
 alias g='git'
 
 # Keybindings
+bindkey -e  # emacs mode
 bindkey '^R' history-incremental-search-backward
