@@ -7,6 +7,7 @@ FILEMAP["gitconfig"]="$HOME/.gitconfig"
 FILEMAP["pythonrc.py"]="$HOME/.pythonrc.py"
 FILEMAP["editorconfig"]="$HOME/.editorconfig"
 FILEMAP["vimrc"]="$HOME/.vimrc"
+FILEMAP["sshrc"]="$HOME/.ssh/rc"
 
 function diff_and_copy {
     local src="$1"

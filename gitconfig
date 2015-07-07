@@ -20,6 +20,7 @@
     ls = log --oneline
     unstage = reset HEAD
     vanquish = submodule update --init --recursive
+    sync = "!f() { echo Syncing this branch with master && git checkout master && git pull && git checkout - && git rebase master; }; f"
 
 [branch]
     autosetuprebase = always
