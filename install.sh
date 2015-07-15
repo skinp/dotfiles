@@ -38,7 +38,10 @@ if [[ ! -f "$HOME/.vim/autoload/plug.vim" ]]; then
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
-vim +PlugUpgrade +PlugUpdate +PlugClean +qall
+echo -n "Do the vim plugin dance? "; read line
+if [[ "$line" == "yes" || "$line" == "Y" || "$line" == "y" ]]; then
+    vim +PlugUpgrade +PlugUpdate +PlugClean +qall
+fi
 
 # Disable login message from SSH
 touch ~/.hushlogin
