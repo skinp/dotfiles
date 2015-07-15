@@ -50,7 +50,7 @@ let g:syntastic_mode_map = { 'mode': 'passive' }
 " format with goimports instead of gofmt
 let g:go_fmt_command = "goimports"
 " buftabline
-let g:buftabline_numbers = 1
+"let g:buftabline_numbers = 1
 let g:buftabline_indicators = 1
 " YouCompleteMe
 let g:ycm_filepath_completion_use_working_dir = 0 " Maybe change to 1 here
