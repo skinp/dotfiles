@@ -13,7 +13,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'altercation/vim-colors-solarized'
 Plug 'scrooloose/syntastic'
 Plug 'fatih/vim-go'
-Plug 'kien/ctrlp.vim'
+Plug 'kien/ctrlp.vim' "seems like kien is unmaintained. ctrlpvim/ctrlp.vim maybe?
 Plug 'mileszs/ack.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'chase/vim-ansible-yaml'
