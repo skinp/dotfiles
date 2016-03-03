@@ -18,6 +18,7 @@ Plug 'mileszs/ack.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'chase/vim-ansible-yaml'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'hashivim/vim-terraform'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
 "Plug 'SirVer/ultisnips'
 "Plug 'honza/vim-snippets'
