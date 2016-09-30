@@ -22,6 +22,10 @@
     vanquish = submodule update --init --recursive
     sync = "!f() { echo Syncing this branch with master && git checkout master && git pull && git checkout - && git rebase master; }; f"
     files = diff-tree --no-commit-id --name-only -r
+    shorty = status --short --branch
+    commend = commit --amend --no-edit
+    please = push --force-with-lease
+    grog = log --graph --abbrev-commit --decorate --all --format=format:\"%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(dim white) - %an%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n %C(white)%s%C(reset)\"
 
 [branch]
     autosetuprebase = always
