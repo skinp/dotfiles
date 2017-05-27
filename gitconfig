@@ -11,6 +11,10 @@
 [color]
     ui = 1
 
+[status]
+    # show all new files, not just the directory
+    showUntrackedFiles = all
+
 [alias]
     caa = commit -a --amend -C HEAD
     co = checkout
@@ -27,8 +31,24 @@
     please = push --force-with-lease
     grog = log --graph --abbrev-commit --decorate --all --format=format:\"%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(dim white) - %an%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n %C(white)%s%C(reset)\"
 
+    # remove random local branches
+    prune = fetch --prune
+
+    # sets things up the way they were before the last commit
+    undo = reset --soft HEAD^
+
+    # stash everything, including new files
+    stash-all = stash save --include-untracked
+
+    # another better git log
+    glog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+
 [branch]
     autosetuprebase = always
 
 [core]
 	excludesfile = ~/.gitignore_global
+
+#[commit]
+#    # "other people can trust that the changes you've made really were made by you"
+#    gpgSign = true
