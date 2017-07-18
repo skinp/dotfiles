@@ -50,6 +50,10 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 let g:syntastic_mode_map = { 'mode': 'passive' }
 " format with goimports instead of gofmt
 let g:go_fmt_command = "goimports"
+" highlight same variable references
+let g:go_auto_sameids = 1
+" status line shows type info
+let g:go_auto_type_info = 1
 " buftabline
 "let g:buftabline_numbers = 1
 let g:buftabline_indicators = 1
