@@ -152,13 +152,15 @@ nmap <silent> <c-l> :wincmd l<CR>
 
 "" FILETYPE SETTINGS
 " Disable automatic insert of comment on newline
-au FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+au filetype * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " Python files are always unix and utf-8
 au BufNewFile *.py setlocal fileformat=unix encoding=utf-8
 " Removes trailing whitespace on every save of python files
 au BufWritePre *.py :call Fix_Trailing_Whitespace()
 " Display tabs at the beginning of a line in Python mode as bad.
 au BufRead,BufNewFile *.py match BadWhitespace /^\t\+/
+" So that crontab actually works
+au filetype crontab setlocal nobackup nowritebackup
 
 "" FUNCTIONS
 function! Fix_Trailing_Whitespace()
