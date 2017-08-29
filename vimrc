@@ -63,6 +63,7 @@ set completeopt-=preview " For now don't show preview window
 "let g:ycm_autoclose_preview_window_after_completion = 1 " Don't need this because of ^^
 "let g:ycm_key_list_select_completion=[]
 "let g:ycm_key_list_previous_completion=[]
+let g:terraform_align=1
 
 "" BUFFERS/VIM INTERNALS SETTINGS
 set hi=500 " Remember last 500 typed commands

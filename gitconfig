@@ -47,7 +47,7 @@
     autosetuprebase = always
 
 [core]
-	excludesfile = ~/.gitignore_global
+    excludesfile = ~/.gitignore_global
 
 #[commit]
 #    # "other people can trust that the changes you've made really were made by you"
