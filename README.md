@@ -2,13 +2,13 @@
 
 To install specific config "packages":
 
-  git submodule update --init
-  stow -v vim git [...]
+    git submodule update --init
+    stow -v vim git [...]
 
 We have some git submodules in here, to keep them up to date:
 
-  git submodule update --remote
+    git submodule update --remote
 
 To install vim plugins:
 
-  vim +PlugUpgrade +PlugUpdate +PlugClean +qall
+    vim +PlugUpgrade +PlugUpdate +PlugClean +qall
