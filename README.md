@@ -8,3 +8,7 @@ To install specific config "packages":
 We have some git submodules in here, to keep them up to date:
 
   git submodule update --remote
+
+To install vim plugins:
+
+  vim +PlugUpgrade +PlugUpdate +PlugClean +qall
