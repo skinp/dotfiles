@@ -1,0 +1,3 @@
+[submodule "hammerspoon/dot-hammerspoon"]
+	path = hammerspoon/dot-hammerspoon
+	url = https://github.com/skinp/hammerspoon.git
