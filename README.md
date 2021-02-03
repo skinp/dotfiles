@@ -4,7 +4,6 @@ New installation installing all configs:
 
     git submodule update --init
     stow -v -R $(ls | grep -v README.md)
-    vim +PlugUpgrade +PlugUpdate +PlugClean +qall
 
 To install specific config "packages":
 
