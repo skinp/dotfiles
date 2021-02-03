@@ -1,3 +1,24 @@
 [submodule "hammerspoon/dot-hammerspoon"]
 	path = hammerspoon/dot-hammerspoon
 	url = https://github.com/skinp/hammerspoon.git
+[submodule "vim/dot-vim/pack/local/start/vim-buftabline"]
+	path = vim/dot-vim/pack/local/start/vim-buftabline
+	url = https://github.com/ap/vim-buftabline.git
+[submodule "vim/dot-vim/pack/local/start/nerdtree"]
+	path = vim/dot-vim/pack/local/start/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
+[submodule "vim/dot-vim/pack/local/start/syntastic"]
+	path = vim/dot-vim/pack/local/start/syntastic
+	url = https://github.com/scrooloose/syntastic.git
+[submodule "vim/dot-vim/pack/local/start/vim-colors-solarized"]
+	path = vim/dot-vim/pack/local/start/vim-colors-solarized
+	url = https://github.com/altercation/vim-colors-solarized.git
+[submodule "vim/dot-vim/pack/local/start/vim-go"]
+	path = vim/dot-vim/pack/local/start/vim-go
+	url = https://github.com/fatih/vim-go.git
+[submodule "vim/dot-vim/pack/local/start/delimitMate"]
+	path = vim/dot-vim/pack/local/start/delimitMate
+	url = https://github.com/Raimondi/delimitMate.git
+[submodule "vim/dot-vim/pack/local/start/editorconfig-vim"]
+	path = vim/dot-vim/pack/local/start/editorconfig-vim
+	url = https://github.com/editorconfig/editorconfig-vim.git

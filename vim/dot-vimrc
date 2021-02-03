@@ -5,25 +5,6 @@ set nobackup " Vim is not made for backups
 set fo=tcq " Turn off auto adding comments on next line
 filetype plugin indent on
 
-"" PLUGINS SETUP
-call plug#begin("~/.vim/plugged")
-Plug 'junegunn/vim-plug'
-Plug 'ap/vim-buftabline'
-Plug 'scrooloose/nerdtree'
-Plug 'altercation/vim-colors-solarized'
-Plug 'scrooloose/syntastic'
-Plug 'fatih/vim-go'
-Plug 'kien/ctrlp.vim' "seems like kien is unmaintained. ctrlpvim/ctrlp.vim maybe?
-Plug 'mileszs/ack.vim'
-Plug 'Raimondi/delimitMate'
-Plug 'chase/vim-ansible-yaml'
-Plug 'editorconfig/editorconfig-vim'
-Plug 'hashivim/vim-terraform'
-"Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
-"Plug 'SirVer/ultisnips'
-"Plug 'honza/vim-snippets'
-call plug#end()
-
 "" IMPORT WORK SPECIFIC CONFIGS (could also use try/catch)
 let g:work_vimrc = $ADMIN_SCRIPTS . "/master.vimrc"
 if filereadable(g:work_vimrc)
