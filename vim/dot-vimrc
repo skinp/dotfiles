@@ -10,7 +10,7 @@ let g:work_vimrc = $ADMIN_SCRIPTS . "/master.vimrc"
 if filereadable(g:work_vimrc)
     silent! execute 'source ' . work_vimrc
 else
-    " Default configuration for intentation and tab size
+    " Default configuration for indentation and tab size
     set tabstop=4
     set softtabstop=4
     set expandtab
@@ -38,13 +38,6 @@ let g:go_auto_type_info = 1
 " buftabline
 "let g:buftabline_numbers = 1
 let g:buftabline_indicators = 1
-" YouCompleteMe
-let g:ycm_filepath_completion_use_working_dir = 0 " Maybe change to 1 here
-set completeopt-=preview " For now don't show preview window
-"let g:ycm_autoclose_preview_window_after_completion = 1 " Don't need this because of ^^
-"let g:ycm_key_list_select_completion=[]
-"let g:ycm_key_list_previous_completion=[]
-let g:terraform_align=1
 
 "" BUFFERS/VIM INTERNALS SETTINGS
 set hi=500 " Remember last 500 typed commands
