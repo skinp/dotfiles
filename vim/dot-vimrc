@@ -6,7 +6,7 @@ set fo=tcq " Turn off auto adding comments on next line
 filetype plugin indent on
 
 "" IMPORT WORK SPECIFIC CONFIGS (could also use try/catch)
-let g:work_vimrc = $ADMIN_SCRIPTS . "/master.vimrc"
+let g:work_vimrc = $HOME . "/.work-configs/vimrc"
 if filereadable(g:work_vimrc)
     silent! execute 'source ' . work_vimrc
 else
