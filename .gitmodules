@@ -22,3 +22,6 @@
 [submodule "vim/dot-vim/pack/local/start/editorconfig-vim"]
 	path = vim/dot-vim/pack/local/start/editorconfig-vim
 	url = https://github.com/editorconfig/editorconfig-vim.git
+[submodule "vim/dot-vim/pack/local/start/vim-colors-catppuccin"]
+	path = vim/dot-vim/pack/local/start/vim-colors-catppuccin
+	url = https://github.com/catppuccin/vim.git

@@ -55,7 +55,7 @@ set winminheight=0 " Minimal number of lines used for any window
 "" VISUAL/COLOR/INTERFACE SETTINGS
 syntax on
 set background=dark
-silent! colorscheme solarized
+silent! colorscheme catppuccin_frappe
 set visualbell " Visual bell on errors
 set number " Show line numbers
 set showmatch " Show matching [{()}]...
