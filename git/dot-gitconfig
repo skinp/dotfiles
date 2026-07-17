@@ -52,3 +52,9 @@
 #[commit]
 #    # "other people can trust that the changes you've made really were made by you"
 #    gpgSign = true
+
+# Machine-specific settings (work email, x509 certs, credential helpers, git-lfs,
+# etc.) live in ~/.gitconfig.local, which is NOT tracked in this repo. Placed last
+# so its values override the portable defaults above. Missing file is ignored.
+[include]
+    path = ~/.gitconfig.local
