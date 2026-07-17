@@ -1,0 +1,40 @@
+onboarding = false
+
+[experimental]
+pane_history = false
+
+[ui]
+agent_panel_sort = "spaces"
+prompt_new_tab_name = false
+
+[terminal]
+# splits/panes inherit the focused pane's cwd (tmux default-path behavior).
+# Resolved by whichever server is running: the local server locally, the remote
+# server under `herdr --remote`, so $HOME/~ always mean the host you're on.
+new_cwd = "follow"
+
+[keys]
+# Free up prefix+c: disable the built-in new-tab action so the custom command
+# below can own the key. herdr checks built-in actions before custom commands,
+# so an empty binding here is required for the override to take effect.
+new_tab = ""
+
+# Redefine prefix+c to always open a new tab at $HOME.
+# tmux equivalent: bind-key c new-window -c "$HOME"
+# Custom commands run on the server host, so $HOME is the remote home under --remote.
+[[keys.command]]
+key = "prefix+c"
+type = "shell"
+command = 'herdr tab create --cwd "$HOME" --focus'
+description = "New tab at $HOME"
+
+# Optional: also send new *workspaces* (the top-level container, tmux-session-like)
+# to $HOME. Uncomment both the disable and the command below to enable.
+# [keys]  # note: merge into the [keys] table above; don't add a second one
+# new_workspace = ""
+#
+# [[keys.command]]
+# key = "prefix+shift+n"
+# type = "shell"
+# command = 'herdr workspace create --cwd "$HOME" --focus'
+# description = "New workspace at $HOME"
