@@ -54,6 +54,15 @@ set winminheight=0 " Minimal number of lines used for any window
 
 "" VISUAL/COLOR/INTERFACE SETTINGS
 syntax on
+" Use 24-bit color so colorschemes render their real hex values instead of
+" being downsampled to the 256-color cube (catppuccin base #303446 -> #303030).
+if has('termguicolors')
+    " tmux-256color's terminfo lacks the RGB capability, so tell Vim how to
+    " emit truecolor escapes directly.
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+    set termguicolors
+endif
 set background=dark
 silent! colorscheme catppuccin_frappe
 set visualbell " Visual bell on errors
