@@ -8,33 +8,164 @@ agent_panel_sort = "spaces"
 prompt_new_tab_name = false
 
 [terminal]
-# splits/panes inherit the focused pane's cwd (tmux default-path behavior).
-# Resolved by whichever server is running: the local server locally, the remote
-# server under `herdr --remote`, so $HOME/~ always mean the host you're on.
-new_cwd = "follow"
+# Global fallback cwd for the +/new BUTTONS (new tab/workspace/pane) and any
+# creation not routed through the skinp.cwd-control plugin. Per-operation cwd for
+# the keyboard shortcuts is set by that plugin's config.toml
+# (tabs/workspaces -> home, panes -> follow).
+new_cwd = "home"
 
 [keys]
-# Free up prefix+c: disable the built-in new-tab action so the custom command
-# below can own the key. herdr checks built-in actions before custom commands,
-# so an empty binding here is required for the override to take effect.
-new_tab = ""
+# tmux-style split bindings. herdr's "vertical" = side-by-side (left/right),
+# "horizontal" = stacked (top/bottom).
+# Disabled here and re-bound to the skinp.cwd-control plugin at the bottom of this
+# file so each op gets its own cwd policy (panes -> follow, per that plugin's
+# config.toml). The same keys are preserved on the plugin bindings.
+split_vertical = ""
+split_horizontal = ""
 
-# Redefine prefix+c to always open a new tab at $HOME.
-# tmux equivalent: bind-key c new-window -c "$HOME"
-# Custom commands run on the server host, so $HOME is the remote home under --remote.
+# Detach from the session (client disconnects, server keeps running).
+# tmux-style prefix+d, alongside herdr's default of prefix+q.
+detach = ["prefix+q", "prefix+d"]
+
+# tmux muscle memory: enter prefix (ctrl+b), keep ctrl held, then tap the
+# second key. herdr matches chords exactly, so the ctrl-held press produces
+# "prefix+ctrl+<key>" which isn't bound by default. Each action below lists
+# the plain default plus its ctrl-held variant so both work.
+new_tab = ""                                       # re-bound to plugin below (-> home)
+new_workspace = ""                                 # re-bound to plugin below (-> home)
+next_tab = ["prefix+n", "prefix+ctrl+n"]           # next window/tab
+previous_tab = ["prefix+p", "prefix+ctrl+p"]       # previous window/tab
+focus_pane_left = ["prefix+h", "prefix+ctrl+h"]    # focus pane to the left
+focus_pane_down = ["prefix+j", "prefix+ctrl+j"]    # focus pane below
+focus_pane_up = ["prefix+k", "prefix+ctrl+k"]      # focus pane above
+focus_pane_right = ["prefix+l", "prefix+ctrl+l"]   # focus pane to the right
+
+# tmux prefix+a "last-window": toggle to the most recently used tab in the
+# current workspace. Provided by the skinp.last-tab plugin.
+[[keys.command]]
+key = "prefix+a"
+type = "plugin_action"
+command = "skinp.last-tab.toggle"
+description = "toggle last tab (this workspace)"
+
+[[keys.command]]
+key = "prefix+ctrl+a"
+type = "plugin_action"
+command = "skinp.last-tab.toggle"
+description = "toggle last tab (this workspace)"
+
+# Optional: toggle to the last tab used in ANY workspace (may switch workspace).
+# [[keys.command]]
+# key = "prefix+A"
+# type = "plugin_action"
+# command = "skinp.last-tab.toggle-global"
+# description = "toggle last tab (any workspace)"
+
+# --- skinp.cwd-control: per-operation cwd policy -----------------------------
+# Replaces the built-in new_tab / new_workspace / split_* bindings (disabled
+# above) so each op picks its own cwd. Policies live in the plugin's config.toml:
+#   new tabs -> home, new workspaces -> home, new panes -> follow.
+# The +/new mouse buttons still use the global new_cwd ("home") since they can't
+# be intercepted. Same keys as before are preserved here.
+
+# new tab (-> home)
 [[keys.command]]
 key = "prefix+c"
-type = "shell"
-command = 'herdr tab create --cwd "$HOME" --focus'
-description = "New tab at $HOME"
+type = "plugin_action"
+command = "skinp.cwd-control.new-tab"
+description = "new tab (cwd -> home)"
 
-# Optional: also send new *workspaces* (the top-level container, tmux-session-like)
-# to $HOME. Uncomment both the disable and the command below to enable.
-# [keys]  # note: merge into the [keys] table above; don't add a second one
-# new_workspace = ""
+[[keys.command]]
+key = "prefix+ctrl+c"
+type = "plugin_action"
+command = "skinp.cwd-control.new-tab"
+description = "new tab (cwd -> home)"
+
+# new workspace (-> home); herdr default key prefix+shift+n
+[[keys.command]]
+key = "prefix+shift+n"
+type = "plugin_action"
+command = "skinp.cwd-control.new-workspace"
+description = "new workspace (cwd -> home)"
+
+# split side-by-side / left-right (was split_vertical) -> follow
+[[keys.command]]
+key = "prefix+%"
+type = "plugin_action"
+command = "skinp.cwd-control.new-pane-right"
+description = "split right (cwd -> follow)"
+
+[[keys.command]]
+key = "prefix+|"
+type = "plugin_action"
+command = "skinp.cwd-control.new-pane-right"
+description = "split right (cwd -> follow)"
+
+[[keys.command]]
+key = "prefix+v"
+type = "plugin_action"
+command = "skinp.cwd-control.new-pane-right"
+description = "split right (cwd -> follow)"
+
+# split stacked / top-bottom (was split_horizontal) -> follow
+[[keys.command]]
+key = 'prefix+"'
+type = "plugin_action"
+command = "skinp.cwd-control.new-pane-down"
+description = "split down (cwd -> follow)"
+
+[[keys.command]]
+key = "prefix+minus"
+type = "plugin_action"
+command = "skinp.cwd-control.new-pane-down"
+description = "split down (cwd -> follow)"
+
+# --- exit session entirely --------------------------------------------------
+# prefix+q / prefix+d only DETACH (server + session keep running, tab restores
+# on reattach). This stops the session outright. Runs detached, so it can kill
+# the session it's invoked from.
+[[keys.command]]
+key = "prefix+shift+q"
+type = "shell"
+command = "herdr session stop default"
+description = "stop (exit) this session entirely"
+
+[[keys.command]]
+key = "prefix+t"
+type = "popup"
+command = "exec \"${SHELL:-sh}\""
+description = "open scratch terminal"
+width = "80%"
+
+## How we used to manage cwd without skinp.cwd-control
+#[terminal]
+## splits/panes inherit the focused pane's cwd (tmux default-path behavior).
+## Resolved by whichever server is running: the local server locally, the remote
+## server under `herdr --remote`, so $HOME/~ always mean the host you're on.
+#new_cwd = "follow"
 #
-# [[keys.command]]
-# key = "prefix+shift+n"
-# type = "shell"
-# command = 'herdr workspace create --cwd "$HOME" --focus'
-# description = "New workspace at $HOME"
+#[keys]
+## Free up prefix+c: disable the built-in new-tab action so the custom command
+## below can own the key. herdr checks built-in actions before custom commands,
+## so an empty binding here is required for the override to take effect.
+#new_tab = ""
+#
+## Redefine prefix+c to always open a new tab at $HOME.
+## tmux equivalent: bind-key c new-window -c "$HOME"
+## Custom commands run on the server host, so $HOME is the remote home under --remote.
+#[[keys.command]]
+#key = "prefix+c"
+#type = "shell"
+#command = 'herdr tab create --cwd "$HOME" --focus'
+#description = "New tab at $HOME"
+#
+## Optional: also send new *workspaces* (the top-level container, tmux-session-like)
+## to $HOME. Uncomment both the disable and the command below to enable.
+## [keys]  # note: merge into the [keys] table above; don't add a second one
+## new_workspace = ""
+##
+## [[keys.command]]
+## key = "prefix+shift+n"
+## type = "shell"
+## command = 'herdr workspace create --cwd "$HOME" --focus'
+## description = "New workspace at $HOME"

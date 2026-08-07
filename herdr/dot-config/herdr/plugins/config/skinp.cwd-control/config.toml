@@ -1,0 +1,9 @@
+# herdr-cwd-control — per-operation working-directory policy.
+#
+# Values: "follow" (inherit source pane) | "home" ($HOME) |
+#         "current" (herdr startup dir) | a path like "~/Projects".
+# Fallback order per op: new_<op>_cwd -> default -> "follow".
+
+new_tab_cwd = "home"        # new tabs always open at $HOME
+new_workspace_cwd = "home"  # new workspaces always open at $HOME
+new_pane_cwd = "follow"     # new panes/splits follow the source pane
